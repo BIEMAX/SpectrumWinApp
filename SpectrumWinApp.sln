@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectrumWinApp", "SpectrumWinApp\SpectrumWinApp.csproj", "{A778913A-84D5-4AA0-A23B-98559C1B699F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A778913A-84D5-4AA0-A23B-98559C1B699F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A778913A-84D5-4AA0-A23B-98559C1B699F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A778913A-84D5-4AA0-A23B-98559C1B699F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A778913A-84D5-4AA0-A23B-98559C1B699F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED2644AA-9E11-49B3-9534-36F6A12603A7}
+	EndGlobalSection
+EndGlobal
