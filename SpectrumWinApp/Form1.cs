@@ -13,8 +13,7 @@ namespace SpectrumWinApp
         #region Globals
 
         private List<PeakAreas> mLstPeakAreas = new List<PeakAreas>();
-        private DataTable mDados = new DataTable();
-        private Utilities mUtils = new Utilities();
+        private readonly Utilities mUtils = new Utilities();
         private String mLicenseFile = "";
 
         #endregion
@@ -132,7 +131,7 @@ namespace SpectrumWinApp
         /// <returns></returns>
         protected private Double CalculateFilter(Double Transmitance)
         {
-            return this.mLstPeakAreas.Count() <= 0 ? 0.0 : mLstPeakAreas[mLstPeakAreas.Count() - 1].Transmitance - Transmitance;
+            return this.mLstPeakAreas.Count() <= 0 ? 0.0 : this.mLstPeakAreas[this.mLstPeakAreas.Count() - 1].Transmitance - Transmitance;
         }
 
         /// <summary>
@@ -142,8 +141,8 @@ namespace SpectrumWinApp
         /// <returns></returns>
         protected private Double CalculateDerivative(Double Transmitance, Double Wavenumber)
         {
-            Double diffTransmitance = mLstPeakAreas.Count() <= 0 ? 0.0 : mLstPeakAreas[mLstPeakAreas.Count() - 1].Transmitance - Transmitance;
-            Double diffWavenumber = mLstPeakAreas.Count() <= 0 ? 0.0 : mLstPeakAreas[mLstPeakAreas.Count() - 1].WaveNumber - Wavenumber;
+            Double diffTransmitance = this.mLstPeakAreas.Count() <= 0 ? 0.0 : this.mLstPeakAreas[mLstPeakAreas.Count() - 1].Transmitance - Transmitance;
+            Double diffWavenumber = this.mLstPeakAreas.Count() <= 0 ? 0.0 : this.mLstPeakAreas[mLstPeakAreas.Count() - 1].WaveNumber - Wavenumber;
             return diffTransmitance == diffWavenumber ? 0.0 : (diffTransmitance / diffWavenumber);
         }
 
