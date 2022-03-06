@@ -11,5 +11,6 @@ namespace SpectrumWinApp
         public Double WaveNumber {  get; set; }
         public Double Transmitance { get; set; }
         public Double Filter { get; set; }
+        public Double Derivative { get; set; }
     }
 }

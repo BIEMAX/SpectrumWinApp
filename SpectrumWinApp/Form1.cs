@@ -31,12 +31,12 @@ namespace SpectrumWinApp
 
         private void txtWavenumber_TextChanged(object sender, EventArgs e)
         {
-            txtWavenumber.Text = CustomStrings.DeixaSomenteNumeros(this.Text);
+            txtWavenumber.Text = CustomStrings.DeixaSomenteNumeros(txtWavenumber.Text);
         }
 
         private void txtTransmitance_TextChanged(object sender, EventArgs e)
         {
-            txtTransmitance.Text = CustomStrings.DeixaSomenteNumeros(this.Text);
+            txtTransmitance.Text = CustomStrings.DeixaSomenteDecimais(txtTransmitance.Text);
         }
 
         private void btnCalc_Click(object sender, EventArgs e)
@@ -64,18 +64,51 @@ namespace SpectrumWinApp
             }
         }
 
+        /// <summary>
+        /// Function that save the entry values inside a global list
+        /// </summary>
         protected private void AddPeakArea()
         {
             Double waveNumber = Convert.ToDouble(txtWavenumber.Text);
             Double transmitance = Convert.ToDouble(txtTransmitance.Text);
-            Double filterValue = mLstPeakAreas.Count() <= 0 ? 0.0 : mLstPeakAreas[mLstPeakAreas.Count() - 1].Transmitance - transmitance;
+            Double filterValue = this.CalculateFilter(transmitance);
+            Double derivative = this.CalculateDerivative(transmitance, waveNumber);
 
             mLstPeakAreas.Add(new PeakAreas()
             {
                 WaveNumber = waveNumber,
                 Transmitance = transmitance,
                 Filter = filterValue,
+                Derivative = derivative
             });
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = mLstPeakAreas;
+
+            txtWavenumber.Text = "0";
+            txtTransmitance.Text = "0.0";
+        }
+
+        /// <summary>
+        /// Calculate filter 1 field if the global variable 'mLstPeakAreas' has more than one value.
+        /// </summary>
+        /// <param name="Transmitance">Value of current transmitance</param>
+        /// <returns></returns>
+        protected private Double CalculateFilter(Double Transmitance)
+        {
+            return mLstPeakAreas.Count() <= 0 ? 0.0 : mLstPeakAreas[mLstPeakAreas.Count() - 1].Transmitance - Transmitance;
+        }
+
+        /// <summary>
+        /// Calculate derivative field if the global variable 'mLstPeakAreas' has more than one value.
+        /// </summary>
+        /// <param name="Transmitance">Value of current transmitance</param>
+        /// <returns></returns>
+        protected private Double CalculateDerivative(Double Transmitance, Double Wavenumber)
+        {
+            Double diffTransmitance = mLstPeakAreas.Count() <= 0 ? 0.0 : mLstPeakAreas[mLstPeakAreas.Count() - 1].Transmitance - Transmitance;
+            Double diffWavenumber = mLstPeakAreas.Count() <= 0 ? 0.0 : mLstPeakAreas[mLstPeakAreas.Count() - 1].WaveNumber - Wavenumber;
+            return diffTransmitance == diffWavenumber ? 0.0 : (diffTransmitance/diffWavenumber);
         }
 
         #endregion

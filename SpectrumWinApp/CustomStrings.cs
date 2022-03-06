@@ -78,10 +78,10 @@ public class CustomStrings
     /// <param name="StrSubstituto">Texto substituto pelo 'texto de procura'.</param>
     /// <returns>String original com sua chave de busca substituída.</returns>
     /// <remarks>Adicionar a referência 'Microsoft.VisualBasic'</remarks>
-    public static String SubstituiTextoEmString(String StrOriginal, String StrProcurar, String StrSubstituto)
-    {
-        return Microsoft.VisualBasic.Strings.Replace(StrOriginal, StrProcurar, StrSubstituto, 1, -1, CompareMethod.Text);
-    }
+    //public static String SubstituiTextoEmString(String StrOriginal, String StrProcurar, String StrSubstituto)
+    //{
+    //    return Microsoft.VisualBasic.Strings.Replace(StrOriginal, StrProcurar, StrSubstituto, 1, -1, CompareMethod.Text);
+    //}
 
     /// <summary>
     ///     Método booleano que verifica se a peça possui a codificação correta para ser programada, ou seja,
