@@ -143,7 +143,7 @@ namespace SpectrumWinApp
         {
             Double diffTransmitance = this.mLstPeakAreas.Count() <= 0 ? 0.0 : this.mLstPeakAreas[mLstPeakAreas.Count() - 1].Transmitance - Transmitance;
             Double diffWavenumber = this.mLstPeakAreas.Count() <= 0 ? 0.0 : this.mLstPeakAreas[mLstPeakAreas.Count() - 1].WaveNumber - Wavenumber;
-            return diffTransmitance == diffWavenumber ? 0.0 : (diffTransmitance / diffWavenumber);
+            return (diffTransmitance == diffWavenumber) ? 0.0 : (diffWavenumber == 0.0 ? 0.0 : (diffTransmitance / diffWavenumber));
         }
 
         /// <summary>

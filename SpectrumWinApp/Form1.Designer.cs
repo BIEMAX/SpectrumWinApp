@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtWavenumber = new System.Windows.Forms.TextBox();
+            this.btnCalc = new System.Windows.Forms.Button();
             this.txtTransmitance = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtWavenumber = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clWavenumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTransmitance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clFilter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDerivatives = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnCalc = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,37 +62,19 @@
             this.panel1.Size = new System.Drawing.Size(414, 76);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // btnCalc
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.btnExport);
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(12, 94);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(414, 259);
-            this.panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Wavenumber (cm-1)";
-            // 
-            // txtWavenumber
-            // 
-            this.txtWavenumber.Location = new System.Drawing.Point(17, 39);
-            this.txtWavenumber.Name = "txtWavenumber";
-            this.txtWavenumber.Size = new System.Drawing.Size(100, 20);
-            this.txtWavenumber.TabIndex = 1;
-            this.txtWavenumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtWavenumber.TextChanged += new System.EventHandler(this.txtWavenumber_TextChanged);
+            this.btnCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalc.Image = global::SpectrumWinApp.Properties.Resources.icons8_check_16;
+            this.btnCalc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalc.Location = new System.Drawing.Point(322, 37);
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(75, 23);
+            this.btnCalc.TabIndex = 4;
+            this.btnCalc.Text = "Generate";
+            this.btnCalc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // txtTransmitance
             // 
@@ -111,6 +93,66 @@
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Transmitance  (%)";
+            // 
+            // txtWavenumber
+            // 
+            this.txtWavenumber.Location = new System.Drawing.Point(17, 39);
+            this.txtWavenumber.Name = "txtWavenumber";
+            this.txtWavenumber.Size = new System.Drawing.Size(100, 20);
+            this.txtWavenumber.TabIndex = 1;
+            this.txtWavenumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtWavenumber.TextChanged += new System.EventHandler(this.txtWavenumber_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Wavenumber (cm-1)";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.Controls.Add(this.btnClear);
+            this.panel2.Controls.Add(this.btnExport);
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Location = new System.Drawing.Point(12, 94);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(414, 259);
+            this.panel2.TabIndex = 1;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Image = global::SpectrumWinApp.Properties.Resources.icons8_recycle_bin_16;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(191, 225);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(100, 30);
+            this.btnClear.TabIndex = 6;
+            this.btnClear.Text = "Clear fields";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Image = global::SpectrumWinApp.Properties.Resources.icons8_check_16;
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExport.Location = new System.Drawing.Point(297, 225);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(100, 30);
+            this.btnExport.TabIndex = 5;
+            this.btnExport.Text = "Export as CSV";
+            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // dataGridView1
             // 
@@ -161,48 +203,6 @@
             this.clDerivatives.HeaderText = "Derivative";
             this.clDerivatives.Name = "clDerivatives";
             this.clDerivatives.ReadOnly = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Image = global::SpectrumWinApp.Properties.Resources.icons8_recycle_bin_16;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(191, 225);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(100, 30);
-            this.btnClear.TabIndex = 6;
-            this.btnClear.Text = "Limpar dados";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnExport
-            // 
-            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Image = global::SpectrumWinApp.Properties.Resources.icons8_check_16;
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(297, 225);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(100, 30);
-            this.btnExport.TabIndex = 5;
-            this.btnExport.Text = "Exportar CSV";
-            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnCalc
-            // 
-            this.btnCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalc.Image = global::SpectrumWinApp.Properties.Resources.icons8_check_16;
-            this.btnCalc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalc.Location = new System.Drawing.Point(322, 37);
-            this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(75, 23);
-            this.btnCalc.TabIndex = 4;
-            this.btnCalc.Text = "Calcular";
-            this.btnCalc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCalc.UseVisualStyleBackColor = true;
-            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // Form1
             // 
