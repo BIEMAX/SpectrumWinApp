@@ -7,3 +7,5 @@ A Polymer infrared spectrum is used as a calculus basis, being x axis wavelength
 The wavelength varies from  400 to 4000 cm-1.
 
 The method is efficient even if baseline fluctuates.
+
+This application automatically calculates the area size based on the defined information. 
